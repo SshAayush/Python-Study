@@ -38,10 +38,23 @@ class Product:
     def calculate_total_price(self):
         return self.price * self.quantity
 
+    def apply_discount(self):
+        self.price = self.price * self.pay_rate
+
 
 samsung = Product("samsung", 500, 10)
+samsung.apply_discount()
+print(samsung.price)
 
 apple = Product("apple", 600, 3)
+apple.pay_rate = 0.7
+apple.apply_discount()
 
-print(samsung.calculate_total_price())
-print(apple.calculate_total_price())
+
+# print(samsung.calculate_total_price())
+# print(apple.calculate_total_price()
+
+
+# print(Product.__dict__)
+# print(samsung.__dict__)
+# print(samsung.pay_rate)
