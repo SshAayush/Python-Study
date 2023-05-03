@@ -32,16 +32,27 @@ class Product:
             for item in items:
                 Product(
                     name = item.get('name'),
-                    price = int(item.get('price')),
+                    price = float(item.get('price')),
                     quantity = int(item.get('quantity')),
                 )
+
+    @staticmethod
+    def is_integer(num):
+        if isinstance(num, float):
+            return num.is_integer()
+        elif isinstance(num, int):
+            return True
+        else:
+            return False
 
     def __repr__(self):
         return f"Item: ('{self.name}', {self.price}, {self.quantity})"
 
 
-Product.instance_from_csv()
-print(Product.all)
+
+print(Product.is_integer(5.0))
+# Product.instance_from_csv()
+# print(Product.all)
 
 
 # samsung = Product("Samsung", 500, 20)
